@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Gauge, Timer, History, Activity, Layers, TrendingUp, Watch } from 'lucide-react';
+import { Gauge, Timer, History, Activity, Layers, TrendingUp, Watch, Ruler } from 'lucide-react';
 import { THEMES } from './constants';
 import Home from './components/Home';
 import IntervalTimer from './components/IntervalTimer';
@@ -8,6 +8,7 @@ import BorgScale from './components/BorgScale';
 import LoadCalculator from './components/LoadCalculator';
 import PerformanceEstimator from './components/PerformanceEstimator';
 import Chronometer from './components/Chronometer';
+import VmaTests from './components/VmaTests';
 
 const STORAGE_KEY = 'vma-pro-settings';
 const HISTORY_KEY = 'vma-pro-history';
@@ -20,6 +21,7 @@ const TABS = [
   { id: 'borg', label: 'Borg', icon: Activity },
   { id: 'load', label: 'Charge', icon: Layers },
   { id: 'perf', label: 'Performances', icon: TrendingUp },
+  { id: 'vmatests', label: 'Test de VMA', icon: Ruler },
 ];
 
 export default function VMACalculator() {
@@ -131,6 +133,7 @@ export default function VMACalculator() {
         {activeTab === 'load' && <LoadCalculator {...screenProps} />}
         {activeTab === 'perf' && <PerformanceEstimator {...screenProps} />}
         {activeTab === 'chrono' && <Chronometer {...screenProps} />}
+        {activeTab === 'vmatests' && <VmaTests {...screenProps} />}
       </div>
     </div>
   );
